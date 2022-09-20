@@ -206,31 +206,42 @@ def PudricionLetalYCogollo():
     
     return flechaDesgaja and hojasSecas and clorosis
 
+def ShowIllness(illness):
+    tk.Label(screen, text = illness, font = ('consolas 10 bold')).place(x = 1300, y = 100)
+
 def ReconocerEnfermad():
     global timeDiff
     
     ResetColors()
     timeDiff = 0
     
+    illness = ''
+    
     if FitotoxicidadPesticidas():
-        print("La palmera tiene la enfermedad de fitotoxicidad por pesticidas")
-        print("Prevencion: tratar a la palmera con productos a base de BHC-gama, cobre y mercurio.")
+        illness += "La palmera tiene la enfermedad de fitotoxicidad por pesticidas"
+        illness += "\nPrevencion: tratar a la palmera con productos a base de \nBHC-gama, cobre y mercurio."
+        screen.after(timeDiff, lambda: ShowIllness(illness))
     
     if PudricionRaizBaseTronco():
-        print("La palmera presenta la enfermedad de pudriciones de las raices y base del tronco")
-        print("Prevencion: TODO")
+        illness += "\n\nLa palmera presenta la enfermedad de pudriciones de las raices y base del tronco"
+        illness += "\nPrevencion: Se recomienda un mejoramiento del drenaje a fin de facilitar la \nevacuación rápida y eficiente del exceso de agua en el suelo."
+        screen.after(timeDiff, lambda: ShowIllness(illness))
     
     if PudricionBasalTronco():
-        print("La palmera presenta la enfermedad de pudricion del basal del tronco")
-        print("Prevencion: TODO")
+        illness += "\n\nLa palmera presenta la enfermedad de pudricion del basal del tronco"
+        illness += "\nPrevencion: Se recomienda la remoción de los tejidos infectados y la aplicación de \nfungicidas protectores, con una pasta cicatrizante."
+        screen.after(timeDiff, lambda: ShowIllness(illness))
         
     if ManchasFoliares():
-        print("La palmera presenta la enfermedad de manchas foliares")
-        print("Prevencion: TODO")
+        illness += "\n\nLa palmera presenta la enfermedad de manchas foliares"
+        illness += "\nPrevencion: Se recomienda la erradicación de hojas afectadas y aspersiones con \nfungicidas como Ziram o Captan al 2°/o (2 gramos en 100 gal. de agua)."
+        screen.after(timeDiff, lambda: ShowIllness(illness))
         
     if PudricionLetalYCogollo():
-        print("La palmera presenta la enfermedad de pudricion letal y del cogollo")
-        print("Prevencion: TODO")
+        print('a')
+        illness += "\n\nLa palmera presenta la enfermedad de pudricion letal y del cogollo"
+        illness += "\nPrevencion: Como tal no hay un tratamiento efectivo, pero algunas plantas se \ncuran después de las épocas de lluvia. Tener en cuenta que la zona \nen la que está la planta no tenga un mal drenaje ni suelo compacto."
+        screen.after(timeDiff, lambda: ShowIllness(illness))
 
 if __name__ == "__main__":
     screen = Screen(tk.Tk(), 'Sistema Experto', '1920x1080')
@@ -408,10 +419,11 @@ if __name__ == "__main__":
     chkSuelosCompactos = tk.Checkbutton(screen, text = 'Suelos compactos', variable = suelosCompactos)
     chkSuelosCompactos.place(x = 0, y = 730)
     
+    ''' Canvas '''
     canvas = tk.Canvas(width = 650, height = 400)
     canvas.place(x = 500, y = 200)
     
+    ''' Rules '''
     CreateRules()
     
     screen.mainloop()
-
