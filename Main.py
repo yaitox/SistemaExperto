@@ -305,8 +305,6 @@ if __name__ == "__main__":
     chkAusenciaMoho = tk.Checkbutton(screen, text = 'Ausencia de moho', variable = ausenciaMoho)
     chkAusenciaMoho.place(x = 0, y = 50)
     
-    ''' ################################################## '''
-    
     # Pudricion de las raices y base del tronco
     chkMalDrenaje = tk.Checkbutton(screen, text = 'Condiciones con mal drenaje', variable = malDrenaje)
     chkMalDrenaje.place(x = 0, y = 70)
@@ -332,8 +330,6 @@ if __name__ == "__main__":
     chkAbortoInflorecencias = tk.Checkbutton(screen, text = 'Aborto de inflorecencias', variable = abortoInflorecencias)
     chkAbortoInflorecencias.place(x = 0, y = 230)
     
-    ''' ################################################## '''
-    
     # Pudricion basal del tronco    
     chkOrejasPalo = tk.Checkbutton(screen, text = 'Orejas de palo', variable = orejasPalo)
     chkOrejasPalo.place(x = 0, y = 250)
@@ -353,11 +349,7 @@ if __name__ == "__main__":
     chkTejidoConBandasOscurasIrregulares = tk.Checkbutton(screen, text = 'Tejido con bandas oscuras irregulares', variable = tejidoConBandasOscurasIrregulares)
     chkTejidoConBandasOscurasIrregulares.place(x = 0, y = 350)
     
-    ''' ################################################## '''
-    
-    # Manchas foliares
-    bordeAmarilloPalido = tk.IntVar()
-    
+    # Manchas foliares    
     chkInsectoTingidae = tk.Checkbutton(screen, text = 'Tiene el insecto Tingidae', variable = insectoTingidae)
     chkInsectoTingidae.place(x = 0, y = 370)
     
@@ -390,8 +382,6 @@ if __name__ == "__main__":
     
     chkBordeAmarilloPalido = tk.Checkbutton(screen, text = 'Borde amarillo pálido', variable = bordeAmarilloPalido)
     chkBordeAmarilloPalido.place(x = 0, y = 570)
-    
-    ''' ################################################## '''
     
     # Pudricion letal y del cogollo
     chkPudricionFlechas = tk.Checkbutton(screen, text = 'Pudrición de las flechas', variable = pudricionFlechas)
