@@ -39,22 +39,26 @@ def CreateRules():
             r1 += 170
             textX += 170
         
-
 def FitotoxicidadPesticidas():
+    global timeDiff
     sick = False
     
     if ausenciaMoho.get():
         ChangeColor(rules[1], True)
-        screen.after(1000, lambda: ChangeColor(rules[1], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[1], True))
         sick = True
     
     if colorMarron.get() and hinchazonAnormal.get():
-        screen.after(2000, lambda: ChangeColor(rules[0], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[0], True))
         sick = True
     
     return sick
 
-def PudricionRaizBaseTronco():    
+def PudricionRaizBaseTronco():
+    global timeDiff
+    
     patogeno = False
     bulbaAzulada = False
     aspectoMoribundo = False
@@ -62,49 +66,60 @@ def PudricionRaizBaseTronco():
     
     if malDrenaje.get() and sueloMalCompactado.get():
         patogeno = True
-        screen.after(3000, lambda: ChangeColor(rules[5], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[5], True))
         print("La palmera presenta un patogeno")
     
     if raicesPodridas.get() and colorMarronOscuro.get():
         bulbaAzulada = True
-        screen.after(4000, lambda: ChangeColor(rules[6], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[6], True))
         print("La palmera presenta una bulba azulada")
         
     if amarilloHojaBaseCorona.get() and detenerCrecimiento.get():
         aspectoMoribundo = True
-        screen.after(5000, lambda: ChangeColor(rules[7], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[7], True))
         print("La palmera presenta un aspecto moribundo")
         
     if pudricionRacimos.get() and abortoInflorecencias.get():
         noExpandeFoliculos = True
-        screen.after(6000, lambda: ChangeColor(rules[8], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[8], True))
         print("La palmera no expande foliculos")
         
     return patogeno and bulbaAzulada and aspectoMoribundo and noExpandeFoliculos
 
-def PudricionBasalTronco():   
+def PudricionBasalTronco():
+    global timeDiff
+    
     ganodermaLucidum = False
     hojasBajerasSecas = False
     tejidoInvadido = False
     
     if orejasPalo.get() and producenFructificaciones.get():
         ganodermaLucidum = True
-        screen.after(7000, lambda: ChangeColor(rules[9], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[9], True))
         print("La palmera tiene Ganoderma Lucidum")
     
     if caraInferiorPerforada.get() and numeroFlechasPerforadas.get():
         hojasBajerasSecas = True
-        screen.after(8000, lambda: ChangeColor(rules[10], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[10], True))
         print("La palmera tiene las hojas bajeras secas")
         
     if tejidoColorMarronClaro.get() and tejidoConBandasOscurasIrregulares.get():
         tejidoInvadido = True
-        screen.after(9000, lambda: ChangeColor(rules[11], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[11], True))
         print("La palmera tiene el tejido invadido")
         
     return ganodermaLucidum and hojasBajerasSecas and tejidoInvadido
 
 def ManchasFoliares():
+    global timeDiff
+    
     hongoPatogenoPestalotiopsis = False
     secamientoHojas = False
     puntosNegrosHongos = False
@@ -113,37 +128,45 @@ def ManchasFoliares():
     
     if insectoTingidae.get():
         hongoPatogenoPestalotiopsis = True
-        screen.after(10000, lambda: ChangeColor(rules[12], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[12], True))
         print("La palmera tiene el hongo patógeno Pestalotiopsis")
         
     if perdidaFollaje.get() and disminucionRendimiento.get():
         secamientoHojas = True
-        screen.after(11000, lambda: ChangeColor(rules[13], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[13], True))
         print("La palmera tiene secamiento de hojas")
         
     if manchaGris.get() and tejidoNecrosanado.get():
         puntosNegrosHongos = True
-        screen.after(12000, lambda: ChangeColor(rules[14], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[14], True))
         print("La palmera tiene puntos negros por hongos")
         
     if manchasSecas.get() and centroGris.get():
         botryodiplodia = True
-        screen.after(13000, lambda: ChangeColor(rules[2], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[2], True))
         print("La palmera tiene la bacteria Botryodiplodia")
         
     if aumentaTamano.get() and puntosNegrosPequenos.get():
         botryodiplodia = True
-        screen.after(14000, lambda: ChangeColor(rules[3], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[3], True))
         print("La palmera tiene la bacteria Botryodiplodia")
         
     if colorMarronClaro.get() and bordeAmarilloPalido.get():
         melanconium = True
-        screen.after(15000, lambda: ChangeColor(rules[4], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[4], True))
         print("La palmera tiene la bacteria Melanconium")
         
     return hongoPatogenoPestalotiopsis and secamientoHojas and puntosNegrosHongos and botryodiplodia and melanconium
 
-def PudricionLetalYCogollo():  
+def PudricionLetalYCogollo():
+    global timeDiff
+    
     flechaDesgaja = False
     hojasSecas = False
     clorosis = False
@@ -152,25 +175,30 @@ def PudricionLetalYCogollo():
     
     if pudricionFlechas.get():
         sick = True
-        screen.after(16000, lambda: ChangeColor(rules[15], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[15], True))
     
     if areaPocoDrenaje.get() and suelosCompactos.get():
         sick = True
-        screen.after(17000, lambda: ChangeColor(rules[19], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[19], True))
     
     if tejidoMeristematicoMarronOscuro.get() and pudricionHumeda.get():
         flechaDesgaja = True
-        screen.after(18000, lambda: ChangeColor(rules[16], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[16], True))
         print("La palmera tiene la flecha desgajada")
         
     if hojaCoronaVerdeAmarillo.get():
         hojasSecas = True
-        screen.after(19000, lambda: ChangeColor(rules[17], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[17], True))
         print("Las hojas de la palmera se comenzarán a secar")
         
     if foliosCompactos.get() and centroCoronaAmarilloBrillante.get():
         clorosis = True
-        screen.after(20000, lambda: ChangeColor(rules[18], True))
+        timeDiff += 1000
+        screen.after(timeDiff, lambda: ChangeColor(rules[18], True))
         print("La palmera tiene clorosis")
         
     if sick:
@@ -179,7 +207,10 @@ def PudricionLetalYCogollo():
     return flechaDesgaja and hojasSecas and clorosis
 
 def ReconocerEnfermad():
+    global timeDiff
+    
     ResetColors()
+    timeDiff = 0
     
     if FitotoxicidadPesticidas():
         print("La palmera tiene la enfermedad de fitotoxicidad por pesticidas")
@@ -210,6 +241,7 @@ if __name__ == "__main__":
     hinchazonAnormal = tk.IntVar()
     ausenciaMoho = tk.IntVar()
     rules = []
+    timeDiff = 0
     
     # Manchas foliares
     insectoTingidae = tk.IntVar()
